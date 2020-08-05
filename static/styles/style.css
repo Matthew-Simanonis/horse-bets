@@ -20,7 +20,7 @@ header{
 header img{
     align-items: center;
     display: flex;
-    width: 140px;
+    width: 30px;
 }
 
 body{
@@ -64,7 +64,6 @@ ol {
     background: black;
     color: white;
 }
-
 
 .container {
     min-height: 90vh;
@@ -213,5 +212,9 @@ ol {
 
     #additional{
         min-width: 60px;
+    }
+    
+    header img{
+        width: 140px;
     }
 }
