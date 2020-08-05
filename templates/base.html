@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html Lang='en'>
+    <head>
+        <meta charset='UTF-8'/>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+        <meta http-equiv="X-UA-Compatable" content="ie=edge"/>
+        <link rel='stylesheet' href='{{ url_for("static", filename="styles/style.css") }}'/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <title>{% block title %} Home {% endblock %}</title>
+    </head>
+<body>
+    <header>
+        <img src='{{ url_for("static", filename="img/horse-logo.png") }}'>
+        <h1>Horse Racing's Finest</h1>
+        <img src='{{ url_for("static", filename="img/horse-logo.png") }}'>
+    </header>
+    <div class='container'>
+        {%  block main %}
+        {% endblock %}
+    </div>
+</body>
+</html>

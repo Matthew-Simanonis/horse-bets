@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block main %}
+<div class=main>
+    <div class=horse-count>
+        <span>Number of Horses</span>
+        <input id=horse-count type="number" value=4 min=4>
+        <button id='horse-count-button'>Add Horses</button>
+        <div class='reset'>
+            <button class='button' onClick="window.location.reload();" id='reset'>Reset</button>
+        </div>
+    </div>
+    <section>
+        <div class='left'>
+            <div class=horses-table>
+                <div class="table-top">
+                    <div>Horse</div><div>Race 1</div><div>Race 2</div><div>Race 3</div><div>Race 4</div><div>Jockey Trainer</div><div>Score</div>
+                </div>
+                <ul id="horses-list">
+                </ul>
+            </div>
+        </div>
+        <div class='bottom-buttons'>
+            <div class="submit">
+                <button id='submit-all' class='button'>Submit</button>
+            </div>
+        </div>
+    </section>
+    <section class='results-container'>
+            <div class='results'>
+                <h3>Results</h3>
+                <ol id='results'>
+                </ol>
+            </div>
+    </section>
+    <script type='text/javascript' src='{{ url_for("static", filename="home.js") }}'></script>
+</div>
+{% endblock %}
