@@ -34,35 +34,22 @@ function addHorses(){
             const li = document.createElement('li');
             li.classList.add('horse')
             li.setAttribute('id', horseID)
+            innnerText = `<input id='horse-position' type=number min=0 max=3 value=0 onClick=this.select()></input> 
+            <label class='checkbox'> 
+                <input id='past-jockey' type=checkbox></input>
+                <span id='checkmark'></span>
+            </label>`
+            li.setAttribute('id', horseID)
             li.innerHTML = `<div class=horse-name>Horse ${i + 1}</div>
-                            <input id='horse-position' type=number min=0 max=3 value=0 onClick=this.select()></input>
-                            <label class='checkbox'>
-                                <input id='past-jockey' type=checkbox></input>
-                                <span id='checkmark'></span>
-                            </label>
-                            <input id='horse-position' type=number min=0 max=3 value=0 onClick=this.select()></input>
-                            <label class='checkbox'>
-                                <input id='past-jockey' type=checkbox></input>
-                                <span id='checkmark'></span>
-                            </label>
-                            <input id='horse-position' type=number min=0 max=3 value=0 onClick=this.select()></input>
-                            <label class='checkbox'>
-                                <input id='past-jockey' type=checkbox></input>
-                                <span id='checkmark'></span>
-                            </label>
-                            <input id='horse-position'" type=number min=0 max=3 value=0 onClick=this.select()></input>
-                            <label class='checkbox'>
-                                <input id='past-jockey' type=checkbox></input>
-                                <span id='checkmark'></span>
-                            </label>
+                            ${innnerText}${innnerText}${innnerText}
                             <input id='additional' type=number min=0 value=0 onClick=this.select()></input>
                             <input id='additional' type=number min=0 value=0 onClick=this.select()></input>
                             <div class='horse-score'></div>
                             <button id='remove-horse'>Remove</button>`;
             document.querySelector('#horses-list').append(li);
-        }
-    }
-}
+                    }
+                }
+            }
 
 function addScore(){
     document.querySelectorAll('.horse').forEach(element => {
