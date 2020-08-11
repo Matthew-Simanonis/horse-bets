@@ -65,6 +65,15 @@ ol {
     color: white;
 }
 
+.horse input[type=radio]{
+    display: none;
+}
+
+.horse label{
+    border-radius: 15%;
+    font-weight: 670;
+}
+
 .container {
     min-height: 90vh;
     display: flex;
@@ -183,8 +192,8 @@ ol {
     color: #ffeb38;
     position: absolute;
     font-size: 1.2rem;
-    left: 0.35rem;
-    bottom: 1px;
+    left: 0.4rem;
+    bottom: 2px;
 }
 
 .checkbox > input:active {
@@ -196,6 +205,10 @@ ol {
         font-size: 2rem;
     }
     
+    .horse label {
+        font-size: 1.2rem;
+        padding: 3px;
+    }
 
     .horse-name{
         min-width: 130px;

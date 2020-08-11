@@ -1,6 +1,7 @@
 $(document).ready(function(){
     addHorses();
     reset();
+    document.addEventListener("mouseup", radiobuttons())
     document.getElementById("horse-count-button").addEventListener('click', function(){
         addHorses();
     })
@@ -17,12 +18,18 @@ $(document).ready(function(){
     var config = { attributes: true, childList: true, characterData: true }
     target=document.getElementById('horses-list')
     observer.observe(target, config);
+
+    const radios = document.querySelector('.main')
+    radios.addEventListener('click', e => {
+        radiobuttons();
+    });
 })
 
 function reset(){
     removeButton();
     addScore();
     clearResults();
+    radiobuttons();
 }
 
 function addHorses(){
@@ -30,22 +37,38 @@ function addHorses(){
     var currentHorses = $('#horses-list li').length;
     if (currentHorses <= horseCount) {
         for (i = currentHorses; i < horseCount; i++) {
-            const horseID = 'horse-' + i
+            const horseID = 'horse-' + i;
             const li = document.createElement('li');
-            li.classList.add('horse')
-            li.setAttribute('id', horseID)
-            innnerText = `<input id='horse-position' type=number min=0 max=3 value=0 onClick=this.select()></input> 
-            <label class='checkbox'> 
-                <input id='past-jockey' type=checkbox></input>
-                <span id='checkmark'></span>
-            </label>`
-            li.setAttribute('id', horseID)
-            li.innerHTML = `<div class=horse-name>Horse ${i + 1}</div>
-                            ${innnerText}${innnerText}${innnerText}
-                            <input id='additional' type=number min=0 value=0 onClick=this.select()></input>
+            li.classList.add('horse');
+            li.setAttribute('id', horseID);
+            li.innerHTML = `<div class=horse-name>Horse ${i + 1}</div>`;
+            for (j = 0; j < 4; j++){
+                innerText = `<label id="fourth">
+                                <input type="radio" id="horse-position" name="position-${horseID}-${j}" value="0" checked>
+                                N/A
+                            </label>
+                            <label id='third'>
+                                <input type="radio" id="horse-position" name="position-${horseID}-${j}" value="3">
+                                3rd
+                            </label>
+                            <label id='second'>
+                                <input type="radio" id="horse-position" name="position-${horseID}-${j}" value="2">
+                                2nd
+                            </label>
+                            <label id='first'>
+                                <input type="radio" id="horse-position" name="position-${horseID}-${j}" value="1">
+                                1st
+                            </label>
+                            <label class='checkbox'> 
+                                <input id='past-jockey' type=checkbox></input>
+                                <span id='checkmark'></span>
+                            </label>`
+                li.innerHTML += innerText;
+            }
+            li.innerHTML += `<input id='additional' type=number min=0 value=0 onClick=this.select()></input>
                             <input id='additional' type=number min=0 value=0 onClick=this.select()></input>
                             <div class='horse-score'></div>
-                            <button id='remove-horse'>Remove</button>`;
+                            <button id='remove-horse'>Remove</button>`
             document.querySelector('#horses-list').append(li);
                     }
                 }
@@ -53,16 +76,20 @@ function addHorses(){
 
 function addScore(){
     document.querySelectorAll('.horse').forEach(element => {
-        var ids = element.querySelectorAll('#horse-position');
         var jockeys = element.querySelectorAll('#past-jockey');
         var adds = element.querySelectorAll('#additional');
         var score = element.querySelector('.horse-score');
         var multipliers = {0 : 0, 1 : 3, 2 : 2, 3 : 1}
+        var ids = element.querySelectorAll('#horse-position');
         let total = 0;
 
-        for(i = 0; i < 4; i++) {
-            var newScore = multipliers[ids[i].value]
-            if (jockeys[i].checked == true){
+        for(i = 0; i < 16; i++) {
+            var newScore = 0;
+            if (ids[i].checked == true){
+                newScore = multipliers[ids[i].value];
+            }
+            
+            if (jockeys[(i%4)].checked == true){
                 newScore *= 2;
             }
             else if(isNaN(newScore)){
@@ -129,3 +156,53 @@ function clearResults(){
       }
     }
 
+function radiobuttons(){
+    document.querySelectorAll('#first').forEach(element => {
+        if(element.childNodes[1].checked == true) {
+            element.style.background = 'gold';
+            element.style.color = 'black';
+            element.style.border = '2px solid yellow'
+        }
+        else{
+            element.style.background = 'none'
+            element.style.color = 'white'
+            element.style.border = 'none'
+        }
+    });
+    document.querySelectorAll('#second').forEach(element => {
+        if(element.childNodes[1].checked == true) {
+            element.style.background = 'silver';
+            element.style.color = 'black';
+            element.style.border = '2px solid white'
+        }
+        else{
+            element.style.background = 'none'
+            element.style.color = 'white'
+            element.style.border = 'none'
+        }
+    });
+    document.querySelectorAll('#third').forEach(element => {
+        if(element.childNodes[1].checked == true) {
+            element.style.background = 'rgb(179, 85, 41)';
+            element.style.color = 'black';
+            element.style.border = '2px solid rgb(59, 27, 12)'
+        }
+        else{
+            element.style.background = 'none'
+            element.style.color = 'white'
+            element.style.border = 'none'
+        }
+    });
+    document.querySelectorAll('#fourth').forEach(element => {
+        if(element.childNodes[1].checked == true) {
+            element.style.background = 'rgb(48, 48, 48)';
+            element.style.color = 'white';
+            element.style.border = '2px solid black'
+        }
+        else{
+            element.style.background = 'none'
+            element.style.color = 'white'
+            element.style.border = 'none'
+        }
+    });
+}
