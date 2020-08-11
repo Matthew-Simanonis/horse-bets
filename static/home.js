@@ -39,30 +39,33 @@ function addHorses(){
         for (i = currentHorses; i < horseCount; i++) {
             const horseID = 'horse-' + i;
             const li = document.createElement('li');
+            const div = document.createElement('div')
             li.classList.add('horse');
             li.setAttribute('id', horseID);
             li.innerHTML = `<div class=horse-name>Horse ${i + 1}</div>`;
             for (j = 0; j < 4; j++){
-                innerText = `<label id="fourth">
-                                <input type="radio" id="horse-position" name="position-${horseID}-${j}" value="0" checked>
-                                N/A
-                            </label>
-                            <label id='third'>
-                                <input type="radio" id="horse-position" name="position-${horseID}-${j}" value="3">
-                                3rd
-                            </label>
-                            <label id='second'>
-                                <input type="radio" id="horse-position" name="position-${horseID}-${j}" value="2">
-                                2nd
-                            </label>
-                            <label id='first'>
-                                <input type="radio" id="horse-position" name="position-${horseID}-${j}" value="1">
-                                1st
-                            </label>
-                            <label class='checkbox'> 
-                                <input id='past-jockey' type=checkbox></input>
-                                <span id='checkmark'></span>
-                            </label>`
+                innerText = `<div class=race id=race-${j}>
+                                <label id='first'>
+                                    <input type="radio" id="horse-position" name="position-${horseID}-${j}" value="1">
+                                    1st
+                                </label>
+                                <label id='second'>
+                                    <input type="radio" id="horse-position" name="position-${horseID}-${j}" value="2">
+                                    2nd
+                                </label>
+                                <label id='third'>
+                                    <input type="radio" id="horse-position" name="position-${horseID}-${j}" value="3">
+                                    3rd
+                                </label>
+                                <label id="fourth">
+                                    <input type="radio" id="horse-position" name="position-${horseID}-${j}" value="0" checked>
+                                    N/A
+                                </label>
+                                <label class='checkbox'> 
+                                    <input id='past-jockey' type=checkbox></input>
+                                    <span id='checkmark'></span>
+                                </label>
+                            </div>`
                 li.innerHTML += innerText;
             }
             li.innerHTML += `<input id='additional' type=number min=0 value=0 onClick=this.select()></input>
