@@ -39,12 +39,16 @@ function addHorses(){
         for (i = currentHorses; i < horseCount; i++) {
             const horseID = 'horse-' + i;
             const li = document.createElement('li');
-            const div = document.createElement('div')
+            const div = document.createElement('div');
+            const bot = document.createElement('div');
+            div.classList.add('races');
+            bot.classList.add('jockey-trainer');
             li.classList.add('horse');
             li.setAttribute('id', horseID);
-            li.innerHTML = `<div class=horse-name>Horse ${i + 1}</div>`;
+            li.innerHTML = `<div class=horse-name>Horse #${i + 1}</div>`;
             for (j = 0; j < 4; j++){
                 innerText = `<div class=race id=race-${j}>
+                                <div class=race-number>Race ${j+1}</div>
                                 <label id='first'>
                                     <input type="radio" id="horse-position" name="position-${horseID}-${j}" value="1">
                                     1st
@@ -66,12 +70,21 @@ function addHorses(){
                                     <span id='checkmark'></span>
                                 </label>
                             </div>`
-                li.innerHTML += innerText;
+                div.innerHTML += innerText;
             }
-            li.innerHTML += `<input id='additional' type=number min=0 value=0 onClick=this.select()></input>
+            li.appendChild(div);
+            bot.innerHTML += `<div class=additional-number>
+                                Jockey
+                            </div>
+                                <input id='additional' type=number min=0 value=0 onClick=this.select()></input>
+                            <div class=additional-number>
+                                Trainer
+                            </div>
                             <input id='additional' type=number min=0 value=0 onClick=this.select()></input>
+                            <div class='score-label'>Score:</div>  
                             <div class='horse-score'></div>
-                            <button id='remove-horse'>Remove</button>`
+                            <button id='remove-horse'>X</button>`
+            li.appendChild(bot);
             document.querySelector('#horses-list').append(li);
                     }
                 }
@@ -85,6 +98,7 @@ function addScore(){
         var multipliers = {0 : 0, 1 : 3, 2 : 2, 3 : 1}
         var ids = element.querySelectorAll('#horse-position');
         let total = 0;
+        let counter = 0;
 
         for(i = 0; i < 16; i++) {
             var newScore = 0;
@@ -92,13 +106,16 @@ function addScore(){
                 newScore = multipliers[ids[i].value];
             }
             
-            if (jockeys[(i%4)].checked == true){
+            if (jockeys[counter].checked == true){
                 newScore *= 2;
             }
             else if(isNaN(newScore)){
                 newScore = 0;
             }
             total += newScore;
+            if ((i%4) == 3){
+                counter ++;
+            }
         }
         for(i = 0; i < 2; i++) {
             total += parseFloat(adds[i].value)
