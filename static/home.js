@@ -26,7 +26,6 @@ $(document).ready(function(){
 })
 
 function reset(){
-    removeButton();
     addScore();
     clearResults();
     radiobuttons();
@@ -49,19 +48,19 @@ function addHorses(){
             for (j = 0; j < 4; j++){
                 innerText = `<div class=race id=race-${j}>
                                 <div class=race-number>Race ${j+1}</div>
-                                <label id='first'>
+                                <label id='first' class='horse-button'>
                                     <input type="radio" id="horse-position" name="position-${horseID}-${j}" value="1">
                                     1st
                                 </label>
-                                <label id='second'>
+                                <label id='second' class='horse-button'>
                                     <input type="radio" id="horse-position" name="position-${horseID}-${j}" value="2">
                                     2nd
                                 </label>
-                                <label id='third'>
+                                <label id='third' class='horse-button'>
                                     <input type="radio" id="horse-position" name="position-${horseID}-${j}" value="3">
                                     3rd
                                 </label>
-                                <label id="fourth">
+                                <label id="fourth" class='horse-button'>
                                     <input type="radio" id="horse-position" name="position-${horseID}-${j}" value="0" checked>
                                     N/A
                                 </label>
@@ -76,14 +75,13 @@ function addHorses(){
             bot.innerHTML += `<div class=additional-number>
                                 Jockey
                             </div>
-                                <input id='additional' type=number min=0 value=0 onClick=this.select()></input>
+                                <input id='additional' type=number min=0 value=0 step=.1 onClick=this.select()></input>
                             <div class=additional-number>
                                 Trainer
                             </div>
-                            <input id='additional' type=number min=0 value=0 onClick=this.select()></input>
+                            <input id='additional' type=number min=0 value=0 step=.1 onClick=this.select()></input>
                             <div class='score-label'>Score:</div>  
-                            <div class='horse-score'></div>
-                            <button id='remove-horse'>X</button>`
+                            <div class='horse-score'></div>`
             li.appendChild(bot);
             document.querySelector('#horses-list').append(li);
                     }
@@ -132,7 +130,7 @@ function addScore(){
 
 function removeButton(){
     document.querySelectorAll('#remove-horse').forEach(element => {
-        var parent = element.parentElement
+        var parent = element.parentElement;
         element.addEventListener('click', event =>{
            event.target.parentElement.remove(parent);
         })
@@ -186,7 +184,7 @@ function radiobuttons(){
         else{
             element.style.background = 'none'
             element.style.color = 'white'
-            element.style.border = 'none'
+            element.style.border = '1px solid black'
         }
     });
     document.querySelectorAll('#second').forEach(element => {
@@ -198,7 +196,7 @@ function radiobuttons(){
         else{
             element.style.background = 'none'
             element.style.color = 'white'
-            element.style.border = 'none'
+            element.style.border = '1px solid black'
         }
     });
     document.querySelectorAll('#third').forEach(element => {
@@ -210,7 +208,7 @@ function radiobuttons(){
         else{
             element.style.background = 'none'
             element.style.color = 'white'
-            element.style.border = 'none'
+            element.style.border = '1px solid black'
         }
     });
     document.querySelectorAll('#fourth').forEach(element => {
@@ -222,7 +220,7 @@ function radiobuttons(){
         else{
             element.style.background = 'none'
             element.style.color = 'white'
-            element.style.border = 'none'
+            element.style.border = '1px solid black'
         }
     });
 }

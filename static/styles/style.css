@@ -67,6 +67,7 @@ ol {
 
 .jockey-trainer input {
     max-width: 20px;
+    font-size:1.2rem;
     background: black;
     color: white;
 }
@@ -90,7 +91,8 @@ ol {
 .race {
     display: flex;
     padding: .2rem;
-    border: solid 1px black;
+    font-size: 1.3rem;
+    border: solid 1px rgb(0, 34, 0);
     align-items: center;
     justify-content: space-between;
 }
@@ -118,6 +120,10 @@ ol {
 .table-top {
     display: none;
     justify-content: space-around;
+}
+
+.horse-button {
+    padding: .4rem;
 }
 
 .bottom-buttons {
@@ -240,8 +246,8 @@ ol {
     padding: .3rem;
 }
 
-#remove-horse {
-    flex: -1;
+.horse-score {
+    font-size: 1.5rem;
 }
 
 @media screen and (min-width: 52em) {
@@ -254,7 +260,7 @@ ol {
         flex-direction: row;
     }
 
-    .race-number, .additional-number{
+    .race-number, .additional-number, .score-label{
         display: none;
     }
 
@@ -282,8 +288,8 @@ ol {
     }
 
     .horse input{
-        max-width: 40px;
-        font-size: 1.4rem;
+        max-width: 55px;
+        font-size: 2rem;
     }
 
     #additional{
