@@ -187,6 +187,7 @@ ol {
 
 #results {
     list-style-type: decimal-leading-zero;
+    font-size: 2rem;
 }
 
 .table-top button{
@@ -266,7 +267,7 @@ ol {
     }
 
     .horse label {
-        font-size: 1.2rem;
+        margin: 1px;
         padding: 3px;
     }
 

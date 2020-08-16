@@ -10,10 +10,13 @@ app.config["SESSION_TYPE"] = "filesystem"
 app.secret_key = '08943u50930u9jfsajsdhfaseujfij345j9034u5asedfasdfasdf4'
 
 
-@app.route("/")
+@application.route("/")
 def index():
     return render_template('home.html')
 
+@app.route("/")
+def index():
+    return render_template('home.html')
 
 if __name__ == '__main__':
     app.run()
