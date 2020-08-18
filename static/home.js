@@ -1,13 +1,22 @@
-$(document).ready(function(){
-    addHorses();
+addHorses();
+reset();
+document.getElementById("horse-count-button").addEventListener('click',addHorses())
+document.getElementById("submit-all").addEventListener('click', function(){
     reset();
-    document.getElementById("horse-count-button").addEventListener('click', function(){
-        addHorses();
-    })
-    document.getElementById("submit-all").addEventListener('click', function(){
-        reset();
-        orderResults();
-    })
+    orderResults();
+})
+document.querySelectorAll('.scoring-button').forEach(element => {
+    element.addEventListener('click', function(){
+    if($('#scoring').css('opacity') == 0){
+        $('#scoring').toggleClass('show');
+        $('#scoring').animate({ opacity: 1}, 300);
+        }    
+    else if($('#scoring').css('opacity') == 1){
+        $('#scoring').animate({ opacity: 0}, 300);
+        setTimeout(() => {
+            $('#scoring').toggleClass('show');}, 301);
+        }
+    });
 });
 
 function reset(){

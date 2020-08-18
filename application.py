@@ -14,9 +14,17 @@ app.secret_key = '08943u50930u9jfsajsdhfaseujfij345j9034u5asedfasdfasdf4'
 def index():
     return render_template('home.html')
 
+@application.route("/scoring")
+def scoring():
+    return render_template('scoring.html')
+
 @app.route("/")
 def index():
     return render_template('home.html')
+
+@app.route("/scoring")
+def scoring():
+    return render_template('scoring.html')
 
 if __name__ == '__main__':
     app.run()

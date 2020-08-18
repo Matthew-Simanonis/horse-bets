@@ -11,9 +11,20 @@
     </head>
 <body>
     <header>
-        <img src='{{ url_for("static", filename="img/horse-logo.png") }}'>
-        <h1>Horse Racing's Finest</h1>
-        <img src='{{ url_for("static", filename="img/horse-logo.png") }}'>
+        <nav class=nav>
+            <img src='{{ url_for("static", filename="img/horse-logo.png") }}'>
+            <h1>Horse Racing's Finest</h1>
+            <div class="hamburger" id="hamburger">
+            </div>
+            <ul class="nav-links" id='nav-links'>
+                <li><a class=nav-button href='/'>Home</a></li>
+                <li><a class=nav-button href='/'>Apps</a></li>
+                <li><a class=nav-button href='/'>Contact</a></li>
+                <li><a class=nav-button href='/'>About</a></li>
+            </ul>
+            <img src='{{ url_for("static", filename="img/horse-logo.png") }}'>
+        </nav>
+        </header>  
     </header>
     <div class='container'>
         {%  block main %}

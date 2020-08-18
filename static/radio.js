@@ -8,7 +8,7 @@ $(document).ready(function(){
 
 function radiobuttons(){
 
-    var background = 'rgba(10, 65, 10, 0.9';
+    var background = 'rgba(10, 70, 10, 0.9';
 
     document.querySelectorAll('#first').forEach(element => {
         if(element.childNodes[1].checked == true) {

@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 {% block main %}
 <div class=main>
-    <div class=horse-count>
-        <span>Number of Horses</span>
-        <input id=horse-count type="number" value=4 min=4>
-        <button id='horse-count-button'>Add Horses</button>
-        <div class='reset'>
-            <button class='button' onClick="window.location.reload();" id='reset'>Reset</button>
+    <div class=options>
+        <div class=horse-count>
+            <span>Horse Count: </span>
+            <input id=horse-count type="number" value=4 min=4>
+            <button id='horse-count-button'>Add Horses</button>
+        </div>
+        <div  >
+            <button class='scoring-button'>Scoring</button>
         </div>
     </div>
     <section>
@@ -23,6 +25,9 @@
             <div class="submit">
                 <button id='submit-all' class='button'>Submit</button>
             </div>
+            <div class='reset'>
+                <button class='button' onClick="window.location.reload();" id='reset'>Reset</button>
+            </div>
         </div>
     </section>
     <section class='results-container'>
@@ -32,6 +37,15 @@
                 </ol>
             </div>
     </section>
+    <div id='scoring' class="scoring">
+        <button class='scoring-button' id='scoring-close'>X</button>
+        <h1>Scoring</h1>
+        <p>1st place: 3 points</p>
+        <p>2nd place: 2 points</p>
+        <p>3rd place: 1 point</p>
+        <p>If a Jockey and the horse are the same checkbox for 2x points</p> 
+        <p>Jockey and Trainer scores are added as is</p>
+    </div>
     <script type='text/javascript' src='{{ url_for("static", filename="home.js") }}'></script>
     <script type='text/javascript' src='{{ url_for("static", filename="radio.js") }}'></script>
 </div>

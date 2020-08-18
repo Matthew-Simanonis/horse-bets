@@ -1,7 +1,8 @@
 :root{
-    --primary-color:rgba(4, 87, 10, 0.9);
+    --primary-color:rgba(4, 92, 10, 0.9);
     --secondary-color:rgba(82, 211, 82, 0.75);
     --overlay-color:rgba(13, 116, 0, 0.95);
+    --scores-color: rgba(0, 43, 12, 0.95); 
     --menu-speed:0.75s;
 }
 
@@ -19,11 +20,12 @@ header{
 
 header h1{
     font-size: 2rem;
+    font-family: none;
+    flex: 2;
 }
 
 header img{
-    max-width: 50px;
-    max-height: 60px;
+    max-height: 40px;
 }
 
 body{
@@ -63,6 +65,21 @@ ol {
     align-items: center;
     min-height: 20vh;
     border: 1px solid black;
+}
+
+nav a{
+    color: black;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: none;
+}
+
+nav ul {
+    flex: 1;
+    list-style: none;
+    display: flex;
 }
 
 .jockey-trainer input {
@@ -149,7 +166,9 @@ ol {
     max-width: 40px;
 }
 
-.horse-count {
+.options {
+    display: flex;
+    justify-content: space-around;
     border-bottom: solid;
 }
 
@@ -252,9 +271,55 @@ ol {
     font-size: 1.5rem;
 }
 
+
+nav {
+    min-height: 9vh;
+    margin: auto;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav ul {
+    font-size: 1.5rem;
+    align-items: center;
+}
+
+.scoring {
+    display: none;
+    opacity: 0;
+}
+
+.scoring.show {
+    position: fixed;
+    margin: 5% auto;
+    left: 0;
+    right: 0;
+    top: 15%;
+    z-index: 2;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--scores-color);
+    border: solid rgba(150, 255, 150, 0.75) 2px;
+}
+
+#scoring-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 1rem;
+}
+
 @media screen and (min-width: 52em) {
     body{
         font-size: 2rem;
+    }
+
+    .nav-links {
+        min-height: 30px;
     }
     
     .horse {
@@ -284,6 +349,16 @@ ol {
         margin:auto;
     }
 
+    .nav .hamburger {
+        display: none;
+    }
+
+
+    nav ul {
+        justify-content: space-around;
+        flex: 1;
+    }
+
     .horse-name{
         min-width: 130px;
     }
@@ -302,7 +377,7 @@ ol {
     }
     
     header img{
-        max-width: 140px;
+        max-height: 100px;
     }
 
     .table-top{
