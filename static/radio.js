@@ -7,6 +7,9 @@ $(document).ready(function(){
 });
 
 function radiobuttons(){
+
+    var background = 'rgba(10, 65, 10, 0.9';
+
     document.querySelectorAll('#first').forEach(element => {
         if(element.childNodes[1].checked == true) {
             element.style.background = 'gold';
@@ -14,7 +17,7 @@ function radiobuttons(){
             element.style.border = '2px solid yellow'
         }
         else{
-            element.style.background = 'none'
+            element.style.background = background;
             element.style.color = 'white'
             element.style.border = '1px solid black'
         }
@@ -26,7 +29,7 @@ function radiobuttons(){
             element.style.border = '2px solid white'
         }
         else{
-            element.style.background = 'none'
+            element.style.background = background
             element.style.color = 'white'
             element.style.border = '1px solid black'
         }
@@ -38,7 +41,7 @@ function radiobuttons(){
             element.style.border = '2px solid rgb(59, 27, 12)'
         }
         else{
-            element.style.background = 'none'
+            element.style.background = background
             element.style.color = 'white'
             element.style.border = '1px solid black'
         }
@@ -50,7 +53,7 @@ function radiobuttons(){
             element.style.border = '2px solid black'
         }
         else{
-            element.style.background = 'none'
+            element.style.background = background
             element.style.color = 'white'
             element.style.border = '1px solid black'
         }
