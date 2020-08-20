@@ -1,6 +1,8 @@
 addHorses();
 reset();
-document.getElementById("horse-count-button").addEventListener('click',addHorses())
+document.getElementById("horse-count-button").addEventListener('click', function(){
+    addHorses();
+})
 document.getElementById("submit-all").addEventListener('click', function(){
     reset();
     orderResults();
@@ -33,11 +35,13 @@ function addHorses(){
             const li = document.createElement('li');
             const div = document.createElement('div');
             const bot = document.createElement('div');
+            const top = document.createElement('div');
             div.classList.add('races');
             bot.classList.add('jockey-trainer');
+            top.classList.add('horse-top')
             li.classList.add('horse');
             li.setAttribute('id', horseID);
-            li.innerHTML = `<div class=horse-name>Horse #${i + 1}</div>`;
+            top.innerHTML = `<div class=horse-name><img src="/static/img/horse-logo-${i % 4}.png">Horse #${i + 1}</div>`;
             for (j = 0; j < 4; j++){
                 innerText = `<div class=race id=race-${j}>
                                 <div class=race-number>Race ${j+1}</div>
@@ -64,6 +68,7 @@ function addHorses(){
                             </div>`
                 div.innerHTML += innerText;
             }
+            li.appendChild(top);
             li.appendChild(div);
             bot.innerHTML += `<div class=additional-number>
                                 Jockey

@@ -12,6 +12,10 @@
     box-sizing: border-box;
 }
 
+section {
+    max-width: 99vw;
+}
+
 header{
     background: var(--overlay-color);
     display: flex;
@@ -21,11 +25,20 @@ header{
 header h1{
     font-size: 2rem;
     font-family: none;
+    vertical-align: middle;
+    margin: auto 5px;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
     flex: 2;
 }
 
 header img{
-    max-height: 40px;
+    max-height: 80px;
+    padding: 3px;
+    align-self: center;
 }
 
 body{
@@ -36,10 +49,19 @@ body{
     color: white;
 }
 
+button {
+    background: rgb(55, 117, 36);
+    color: white;
+    border: black 1px solid;
+    cursor: pointer;
+    padding: .3rem;
+    border-radius: 20%;
+}
+
 .main {
     display: flex;
     width: 100vw;
-    max-width: 1400px;
+    max-width: 1000px;
     margin: 0 auto;
     flex-direction: column;
     justify-content: center;
@@ -98,6 +120,10 @@ nav ul {
     font-weight: 670;
 }
 
+.horse-count input{
+    text-align: center;
+}
+
 .container {
     min-height: 90vh;
     display: flex;
@@ -107,8 +133,8 @@ nav ul {
 
 .race {
     display: flex;
-    padding: .2rem;
     font-size: 1.3rem;
+    padding: .2rem;
     height: 100%;
     border: solid 1px rgb(0, 34, 0);
     align-items: center;
@@ -116,11 +142,16 @@ nav ul {
 }
 
 .races {
-    width: 90%;
+    width: 95%;
 }
 
 .race-number {
     align-items: flex-start;
+}
+
+.horse-name img{
+    max-height: 40px;
+    vertical-align: middle;
 }
 
 .horse-name{
@@ -142,12 +173,15 @@ nav ul {
 
 .horse-button {
     padding: .4rem;
+    cursor: pointer;
+    min-width: 46px;
 }
 
 .bottom-buttons {
     padding: 1rem;
     text-align: center;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
     display: flex;
 }
 
@@ -164,12 +198,22 @@ nav ul {
 
 #horse-count {
     max-width: 40px;
+    background: black;
+    color: white;
 }
 
 .options {
     display: flex;
     justify-content: space-around;
     border-bottom: solid;
+}
+
+.options button{
+    margin: .3rem;
+}
+
+.options div{
+    margin: auto;
 }
 
 .reset{
@@ -276,7 +320,7 @@ nav {
     min-height: 9vh;
     margin: auto;
     width: 95%;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: space-between;
 }
@@ -292,6 +336,7 @@ nav ul {
 }
 
 .scoring.show {
+    max-width: 650px;
     position: fixed;
     margin: 5% auto;
     left: 0;
@@ -313,15 +358,63 @@ nav ul {
     width: 1rem;
 }
 
+#additional {
+    min-width: 34px;
+    text-align: center;
+}
+
+.score-button {
+    padding: .4rem;
+    color: white;
+    border: 2px solid;
+    border-radius: 15%;
+    font-weight: 670;
+}
+
+.rule {
+    display: flex;
+    justify-content: space-around;
+    padding: .2rem 0;
+}
+
+#first-scoring{
+    color: black;
+    background: gold;
+    border-color: yellow;
+}
+#second-scoring{
+    color: black;
+    background: silver;
+    border-color: white;
+}
+#third-scoring{
+    color: black;
+    background: rgb(179, 85, 41);
+    border-color: rgb(59, 27, 12);
+}
+#fourth-scoring{
+    color: white;
+    background: rgb(48, 48, 48);
+    border-color: black;
+}
+
 @media screen and (min-width: 52em) {
     body{
         font-size: 2rem;
+    }
+
+    .main {
+        max-width: 1400px;
     }
 
     .nav-links {
         min-height: 30px;
     }
     
+    header h1{
+        font-size: 4rem;
+    }
+
     .horse {
         min-height: auto;
         flex-direction: row;
@@ -339,7 +432,6 @@ nav ul {
     .race {
         display: flex;
         border: none;
-        padding: 1rem;
         height: 100%;
     }
     
@@ -371,10 +463,6 @@ nav ul {
         max-width: 55px;
         font-size: 2rem;
     }
-
-    #additional{
-        min-width: 60px;
-    }
     
     header img{
         max-height: 100px;
@@ -386,5 +474,10 @@ nav ul {
 
     .horse-score {
         font-size: 3rem;
+    }
+
+    #additional {
+        font-size: 2rem;
+        min-width: 75px;
     }
 }

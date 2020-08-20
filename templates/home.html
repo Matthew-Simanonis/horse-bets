@@ -4,7 +4,7 @@
     <div class=options>
         <div class=horse-count>
             <span>Horse Count: </span>
-            <input id=horse-count type="number" value=4 min=4>
+            <input id=horse-count type="number" value=4 min=4 onclick="this.select()">
             <button id='horse-count-button'>Add Horses</button>
         </div>
         <div  >
@@ -40,11 +40,19 @@
     <div id='scoring' class="scoring">
         <button class='scoring-button' id='scoring-close'>X</button>
         <h1>Scoring</h1>
-        <p>1st place: 3 points</p>
-        <p>2nd place: 2 points</p>
-        <p>3rd place: 1 point</p>
-        <p>If a Jockey and the horse are the same checkbox for 2x points</p> 
-        <p>Jockey and Trainer scores are added as is</p>
+        <div class=rule>
+            <div class=score-button id=first-scoring>1st</div><span>3 points</span>
+        </div>
+        <div class=rule>
+            <div class=score-button id=second-scoring>2nd</div><span>2 points</span>
+        </div>
+        <div class=rule>
+            <div class=score-button id=third-scoring>3rd</div><span>1 points</span>
+        </div>
+        <div class=rule>
+            <div class=score-button id=fourth-scoring>N/A</div><span>0 points</span>
+        </div>
+        <p>If a Jockey and the horse are the same; Checkbox for 2x points</p> 
     </div>
     <script type='text/javascript' src='{{ url_for("static", filename="home.js") }}'></script>
     <script type='text/javascript' src='{{ url_for("static", filename="radio.js") }}'></script>
