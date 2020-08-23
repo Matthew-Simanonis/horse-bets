@@ -122,6 +122,7 @@ nav ul {
 
 .horse-count input{
     text-align: center;
+    
 }
 
 .container {
@@ -276,7 +277,7 @@ nav ul {
     -moz-appearance: none;
     -o-appearance: none;
     appearance: none;
-    border: 1px solid #34495E;
+    border: 1px solid #202720;
     border-radius: 4px;
     outline: none;
     transition-duration: 0.3s;
@@ -313,6 +314,10 @@ nav ul {
 
 .horse-score {
     font-size: 1.5rem;
+    color: yellow;
+    background: black;
+    padding: .2rem;
+    min-width: 54px;
 }
 
 
