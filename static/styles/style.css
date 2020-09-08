@@ -403,7 +403,13 @@ nav ul {
     border-color: black;
 }
 
-@media screen and (min-width: 52em) {
+footer a{
+    text-decoration: none;
+    color: grey;
+    font-size: .8rem;
+}
+
+@media screen and (min-width: 1400px) {
     body{
         font-size: 2rem;
     }
@@ -461,7 +467,7 @@ nav ul {
     }
 
     .horse-score {
-        min-width: 63px;
+        min-width: 100px;
     }
 
     .horse input{

@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatable" content="ie=edge"/>
         <link rel='stylesheet' href='{{ url_for("static", filename="styles/style.css") }}'/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+        <meta property="og:image" content='{{ url_for("static", filename="img/web-thumbnail.png") }}' />
         <title>{% block title %} Home {% endblock %}</title>
     </head>
 <body>
@@ -36,6 +36,9 @@
 <footer>
     <div>
         Matthew Simanonis 2020
+    </div>
+    <div>
+        <a href='https://github.com/Matthew-Simanonis/horse-bets'>The Code</a>
     </div>
 </footer>
 </html>

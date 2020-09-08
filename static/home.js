@@ -105,6 +105,10 @@ function addHorses(){
                                 Trainer
                             </div>
                             <input id='additional' type=number min=0 value=0 step=.1 onClick=this.select()></input>
+                            <div class=additional-number>
+                                Work
+                            </div>
+                            <input id='additional' type=number min=0 value=0 step=.1 onClick=this.select()></input>
                             <div class='score-label'>Score:</div>  
                             <div class='horse-score'></div>`
             // add divs to race li
