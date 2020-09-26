@@ -254,6 +254,12 @@ nav ul {
     font-size: 2rem;
 }
 
+.horse-result {
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+}
+
 .table-top button{
     visibility: hidden;
     pointer-events: none;
@@ -366,6 +372,12 @@ nav ul {
 #additional {
     min-width: 34px;
     text-align: center;
+}
+
+.additional-number, .score-label {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
 }
 
 .score-button {
@@ -489,6 +501,10 @@ footer a{
 
     #additional {
         font-size: 2rem;
-        min-width: 75px;
+        min-width: 68px;
+    }
+
+    .horse-result {
+        width: 50%;
     }
 }

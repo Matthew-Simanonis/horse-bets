@@ -159,7 +159,7 @@ function addScore(){
             }
         }
         // Add Jockey/Trainer score to total
-        for(i = 0; i < 2; i++) {
+        for(i = 0; i < 3; i++) {
             total += parseFloat(adds[i].value)
         }
         // Max Score of 99.9
@@ -190,6 +190,7 @@ function removeButton(){
 function orderResults(){
     var scores = {};
     var index = [];
+    var orderedScores = [];
     var winners = [];
     var currentHorses = $('#horses-list li').length;
     var j = 0;
@@ -208,6 +209,7 @@ function orderResults(){
     for(key in index){
         for(i = currentHorses; i > -1; i--){
             if (index[key] == scores[i]){
+                orderedScores.push(scores[i]);
                 winners.push(i);
                 delete scores[i];            
             }
@@ -217,9 +219,13 @@ function orderResults(){
     // Create li element with Horse # for each horse
     for(horse in winners){
         const li = document.createElement('li');
+        const div = document.createElement('div');
+        div.innerHTML = 'Score: ' + orderedScores[horse];
+        div.classList.add('result-score');
         var horseNum = parseInt(winners[horse]) + 1;
         li.classList.add('horse-result');
-        li.innerHTML = 'Horse ' + horseNum;
+        li.innerHTML = 'Horse #' + horseNum;
+        li.append(div);
         // Add li element to results ul
         document.querySelector('#results').append(li);
     }

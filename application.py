@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request
-from flask_debug import Debug
 import os
 
 application = Flask(__name__)
@@ -19,7 +18,5 @@ def index():
     return render_template('home.html')
 
 
-
-
 if __name__ == '__main__':
-    app.run()
+    app.run(host='10.0.0.11')

@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatable" content="ie=edge"/>
         <link rel='stylesheet' href='{{ url_for("static", filename="styles/style.css") }}'/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <meta property="og:image" content='{{ url_for("static", filename="img/web-thumbnail.png") }}' />
+        <link rel="image_src" href='{{ url_for("static", filename="img/web-thumbnail.png") }}' />
         <title>{% block title %} Home {% endblock %}</title>
     </head>
 <body>
